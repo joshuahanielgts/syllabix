@@ -4,7 +4,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { Upload as UploadIcon, X, FileText, LogOut } from "lucide-react";
+import { Upload as UploadIcon, X, FileText, LogOut, History, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 
 const ANALYSIS_LINES = [

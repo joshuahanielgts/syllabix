@@ -114,7 +114,7 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="max-w-4xl mx-auto px-4 py-24">
+      <section id="how-it-works" className="max-w-4xl mx-auto px-4 py-16 md:py-24">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

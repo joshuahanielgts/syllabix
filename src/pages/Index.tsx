@@ -214,7 +214,7 @@ const Index = () => {
             <div className="p-3 sm:p-6">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
                 {/* Topic Frequency Chart */}
-                <div className="md:col-span-7 panel-elevated rounded-lg p-5">
+                <div className="md:col-span-7 panel-elevated rounded-lg p-4 md:p-5">
                   <h3 className="font-mono text-xs font-semibold text-primary mb-5 tracking-widest uppercase">Topic Frequency</h3>
                   <div className="space-y-3">
                     {demoResults.topics.map((t, i) => (

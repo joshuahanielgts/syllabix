@@ -241,7 +241,7 @@ const Index = () => {
                             transition={{ delay: 0.2 + i * 0.06, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                           />
                         </div>
-                        <span className={`font-mono text-[10px] px-1.5 py-0.5 rounded border ${priorityBg(t.priority)} ${priorityColor(t.priority)}`}>
+                        <span className={`font-mono text-[10px] px-1.5 py-0.5 rounded border shrink-0 hidden sm:inline ${priorityBg(t.priority)} ${priorityColor(t.priority)}`}>
                           {t.priority}
                         </span>
                       </motion.div>

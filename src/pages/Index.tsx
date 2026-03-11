@@ -337,7 +337,7 @@ const Index = () => {
               SyllabiX helps you focus on the <span className="text-primary font-semibold">20% of topics</span> that
               generate <span className="text-primary font-semibold">80% of exam questions</span>.
             </p>
-            <div className="flex items-center justify-center gap-10">
+            <div className="flex items-center justify-center gap-6 sm:gap-10">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}

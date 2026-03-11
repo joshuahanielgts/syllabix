@@ -178,7 +178,7 @@ const Index = () => {
       </section>
 
       {/* Dashboard Mockup Preview */}
-      <section id="dashboard-preview" className="max-w-5xl mx-auto px-4 py-24">
+      <section id="dashboard-preview" className="max-w-5xl mx-auto px-4 py-16 md:py-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

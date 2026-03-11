@@ -134,7 +134,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="panel-elevated rounded-lg p-6 flex items-start gap-6 hover:border-primary/20 transition-colors duration-300"
+                className="panel-elevated rounded-lg p-4 md:p-6 flex items-start gap-4 md:gap-6 hover:border-primary/20 transition-colors duration-300"
               >
                 <span className="font-mono text-2xl font-bold text-primary shrink-0 relative z-10">{step.num}</span>
                 <div>

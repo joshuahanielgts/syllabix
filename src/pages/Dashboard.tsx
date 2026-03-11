@@ -144,8 +144,16 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-background">
-        <div className="font-mono text-muted-foreground animate-pulse">LOADING_RESULTS...</div>
+      <div className="min-h-screen bg-background">
+        <header className="sticky top-0 z-50 border-b border-border/50 px-6 py-4 flex items-center justify-between backdrop-blur-md bg-background/80">
+          <div className="flex items-center gap-3">
+            <Sparkles className="h-4 w-4 text-primary" />
+            <h1 className="font-mono text-lg font-semibold text-foreground tracking-tight">SyllabiX</h1>
+          </div>
+        </header>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+          <DashboardSkeleton />
+        </motion.div>
       </div>
     );
   }

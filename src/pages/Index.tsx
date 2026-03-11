@@ -68,7 +68,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-mono text-4xl md:text-6xl font-bold text-foreground leading-[1.1] mb-6"
+            className="font-mono text-3xl sm:text-4xl md:text-6xl font-bold text-foreground leading-[1.1] mb-6"
           >
             Turn Your Syllabus Into a
             <br />

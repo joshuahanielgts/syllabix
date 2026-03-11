@@ -51,7 +51,7 @@ const Index = () => {
       </nav>
 
       {/* Hero */}
-      <section ref={heroRef} className="relative max-w-5xl mx-auto px-4 pt-28 pb-20 text-center">
+      <section ref={heroRef} className="relative max-w-5xl mx-auto px-4 pt-16 md:pt-28 pb-16 md:pb-20 text-center">
         <motion.div style={{ opacity: heroOpacity, y: heroY }}>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -68,7 +68,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-mono text-4xl md:text-6xl font-bold text-foreground leading-[1.1] mb-6"
+            className="font-mono text-3xl sm:text-4xl md:text-6xl font-bold text-foreground leading-[1.1] mb-6"
           >
             Turn Your Syllabus Into a
             <br />
@@ -87,7 +87,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-muted-foreground font-sans text-lg max-w-2xl mx-auto mb-12"
+            className="text-muted-foreground font-sans text-base md:text-lg max-w-2xl mx-auto mb-10 md:mb-12 px-2"
           >
             SyllabiX analyzes syllabi and past exam papers to identify the most important topics and generate an intelligent study plan.
           </motion.p>
@@ -96,16 +96,16 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="flex items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
           >
-            <Button onClick={() => navigate("/auth")} className="h-12 px-8 font-mono text-sm tracking-wider gold-glow group">
+            <Button onClick={() => navigate("/auth")} className="h-12 px-8 font-mono text-sm tracking-wider gold-glow group w-full sm:w-auto">
               Analyze Your Syllabus
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button
               variant="outline"
               onClick={() => document.getElementById("dashboard-preview")?.scrollIntoView({ behavior: "smooth" })}
-              className="h-12 px-8 font-mono text-sm border-border/50 hover:border-primary/30 transition-colors"
+              className="h-12 px-8 font-mono text-sm border-border/50 hover:border-primary/30 transition-colors w-full sm:w-auto"
             >
               See Demo
             </Button>
@@ -114,12 +114,12 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="max-w-4xl mx-auto px-4 py-24">
+      <section id="how-it-works" className="max-w-4xl mx-auto px-4 py-16 md:py-24">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="font-mono text-2xl font-bold text-foreground mb-14 text-center"
+          className="font-mono text-xl md:text-2xl font-bold text-foreground mb-10 md:mb-14 text-center"
         >
           How It Works
         </motion.h2>
@@ -134,7 +134,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="panel-elevated rounded-lg p-6 flex items-start gap-6 hover:border-primary/20 transition-colors duration-300"
+                className="panel-elevated rounded-lg p-4 md:p-6 flex items-start gap-4 md:gap-6 hover:border-primary/20 transition-colors duration-300"
               >
                 <span className="font-mono text-2xl font-bold text-primary shrink-0 relative z-10">{step.num}</span>
                 <div>
@@ -148,12 +148,12 @@ const Index = () => {
       </section>
 
       {/* Features */}
-      <section className="max-w-4xl mx-auto px-4 py-24">
+      <section className="max-w-4xl mx-auto px-4 py-16 md:py-24">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="font-mono text-2xl font-bold text-foreground mb-14 text-center"
+          className="font-mono text-xl md:text-2xl font-bold text-foreground mb-10 md:mb-14 text-center"
         >
           Core Features
         </motion.h2>
@@ -165,7 +165,7 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="panel-elevated rounded-lg p-6 group hover:border-primary/20 transition-all duration-300"
+              className="panel-elevated rounded-lg p-5 md:p-6 group hover:border-primary/20 transition-all duration-300"
             >
               <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
                 <feat.icon className="h-5 w-5 text-primary" />
@@ -178,7 +178,7 @@ const Index = () => {
       </section>
 
       {/* Dashboard Mockup Preview */}
-      <section id="dashboard-preview" className="max-w-5xl mx-auto px-4 py-24">
+      <section id="dashboard-preview" className="max-w-5xl mx-auto px-4 py-16 md:py-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -211,10 +211,10 @@ const Index = () => {
               <span className="ml-3 font-mono text-[10px] text-muted-foreground tracking-wider">SYLLABIX — ANALYSIS DASHBOARD</span>
             </div>
 
-            <div className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
+            <div className="p-3 sm:p-6">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
                 {/* Topic Frequency Chart */}
-                <div className="md:col-span-7 panel-elevated rounded-lg p-5">
+                <div className="md:col-span-7 panel-elevated rounded-lg p-4 md:p-5">
                   <h3 className="font-mono text-xs font-semibold text-primary mb-5 tracking-widest uppercase">Topic Frequency</h3>
                   <div className="space-y-3">
                     {demoResults.topics.map((t, i) => (
@@ -227,7 +227,7 @@ const Index = () => {
                         style={{ transformOrigin: "left" }}
                         className="flex items-center gap-3"
                       >
-                        <span className="font-mono text-[11px] text-foreground w-[180px] shrink-0 truncate">{t.name}</span>
+                        <span className="font-mono text-[10px] sm:text-[11px] text-foreground w-[120px] sm:w-[180px] shrink-0 truncate">{t.name}</span>
                         <div className="flex-1 h-5 bg-muted/50 rounded-sm overflow-hidden relative">
                           <motion.div
                             className="h-full rounded-sm"
@@ -241,7 +241,7 @@ const Index = () => {
                             transition={{ delay: 0.2 + i * 0.06, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                           />
                         </div>
-                        <span className={`font-mono text-[10px] px-1.5 py-0.5 rounded border ${priorityBg(t.priority)} ${priorityColor(t.priority)}`}>
+                        <span className={`font-mono text-[10px] px-1.5 py-0.5 rounded border shrink-0 hidden sm:inline ${priorityBg(t.priority)} ${priorityColor(t.priority)}`}>
                           {t.priority}
                         </span>
                       </motion.div>
@@ -250,7 +250,7 @@ const Index = () => {
                 </div>
 
                 {/* Right column */}
-                <div className="md:col-span-5 flex flex-col gap-5">
+                <div className="md:col-span-5 flex flex-col gap-4 md:gap-5">
                   {/* Coverage */}
                   <div className="panel-elevated rounded-lg p-5 flex flex-col items-center justify-center">
                     <h3 className="font-mono text-xs font-semibold text-primary mb-3 tracking-widest uppercase">Exam Coverage</h3>
@@ -297,7 +297,7 @@ const Index = () => {
               </div>
 
               {/* Predicted Questions */}
-              <div className="panel-elevated rounded-lg p-5 mt-5">
+              <div className="panel-elevated rounded-lg p-4 md:p-5 mt-4 md:mt-5">
                 <h3 className="font-mono text-xs font-semibold text-primary mb-4 tracking-widest uppercase">Predicted Exam Questions</h3>
                 <div className="space-y-2">
                   {demoResults.predicted_questions.slice(0, 3).map((q, i) => (
@@ -321,13 +321,13 @@ const Index = () => {
       </section>
 
       {/* Why This Matters */}
-      <section className="max-w-4xl mx-auto px-4 py-24">
+      <section className="max-w-4xl mx-auto px-4 py-16 md:py-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="panel-elevated rounded-lg p-10 text-center relative overflow-hidden"
+          className="panel-elevated rounded-lg p-6 md:p-10 text-center relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] to-transparent" />
           <div className="relative">
@@ -337,14 +337,14 @@ const Index = () => {
               SyllabiX helps you focus on the <span className="text-primary font-semibold">20% of topics</span> that
               generate <span className="text-primary font-semibold">80% of exam questions</span>.
             </p>
-            <div className="flex items-center justify-center gap-10">
+            <div className="flex items-center justify-center gap-6 sm:gap-10">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               >
-                <div className="font-mono text-4xl font-bold text-primary">20%</div>
+                <div className="font-mono text-3xl sm:text-4xl font-bold text-primary">20%</div>
                 <div className="text-xs text-muted-foreground font-sans mt-1">Topics to Study</div>
               </motion.div>
               <motion.div
@@ -362,7 +362,7 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.6, type: "spring", stiffness: 200 }}
               >
-                <div className="font-mono text-4xl font-bold text-primary">80%</div>
+                <div className="font-mono text-3xl sm:text-4xl font-bold text-primary">80%</div>
                 <div className="text-xs text-muted-foreground font-sans mt-1">Exam Questions Covered</div>
               </motion.div>
             </div>
@@ -371,7 +371,7 @@ const Index = () => {
       </section>
 
       {/* Team */}
-      <section className="max-w-4xl mx-auto px-4 py-24">
+      <section className="max-w-4xl mx-auto px-4 py-16 md:py-24">
         <h2 className="font-mono text-2xl font-bold text-foreground mb-14 text-center">Team — CodersDuo</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-xl mx-auto">
           {[
@@ -397,13 +397,13 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="max-w-4xl mx-auto px-4 py-24 text-center">
+      <section className="max-w-4xl mx-auto px-4 py-16 md:py-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-mono text-3xl font-bold text-foreground mb-4">Ready to study smarter?</h2>
+          <h2 className="font-mono text-2xl md:text-3xl font-bold text-foreground mb-4">Ready to study smarter?</h2>
           <p className="text-muted-foreground font-sans mb-8">Upload your syllabus and get AI-powered insights in seconds.</p>
           <Button onClick={() => navigate("/auth")} className="h-12 px-10 font-mono text-sm tracking-wider gold-glow group">
             Get Started <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

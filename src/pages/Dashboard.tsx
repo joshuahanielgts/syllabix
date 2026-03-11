@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import { motion } from "framer-motion";
 import { LogOut, ArrowLeft, History, Sparkles } from "lucide-react";
 import {
@@ -46,6 +47,69 @@ const barColor = (index: number, total: number) => {
   return "hsl(0, 0%, 35%)";
 };
 
+const DashboardSkeleton = () => (
+  <div className="max-w-6xl mx-auto px-4 py-8">
+    <Skeleton className="h-8 w-48 mb-8" />
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* Chart skeleton */}
+      <div className="panel-elevated rounded-lg p-6 lg:col-span-2">
+        <Skeleton className="h-4 w-32 mb-4" />
+        <div className="space-y-4">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="flex items-center gap-3">
+              <Skeleton className="h-4 w-36" />
+              <Skeleton className="h-5 flex-1" style={{ maxWidth: `${90 - i * 10}%` }} />
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Priority skeleton */}
+      <div className="panel-elevated rounded-lg p-6">
+        <Skeleton className="h-4 w-28 mb-4" />
+        <div className="space-y-3">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <div key={i} className="flex items-center justify-between">
+              <Skeleton className="h-4 w-40" />
+              <Skeleton className="h-5 w-14 rounded" />
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Coverage skeleton */}
+      <div className="panel-elevated rounded-lg p-6 flex flex-col items-center py-10">
+        <Skeleton className="h-4 w-36 mb-6" />
+        <Skeleton className="h-32 w-32 rounded-full" />
+        <Skeleton className="h-3 w-48 mt-4" />
+      </div>
+      {/* Study plan skeleton */}
+      <div className="panel-elevated rounded-lg p-6">
+        <Skeleton className="h-4 w-28 mb-4" />
+        <div className="space-y-3">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <div key={i} className="flex items-center gap-4">
+              <Skeleton className="h-4 w-12" />
+              <Skeleton className="h-px flex-1" />
+              <Skeleton className="h-4 w-32" />
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Questions skeleton */}
+      <div className="panel-elevated rounded-lg p-6">
+        <Skeleton className="h-4 w-40 mb-4" />
+        <div className="space-y-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="flex gap-3">
+              <Skeleton className="h-4 w-6" />
+              <Skeleton className="h-4 flex-1" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 const Dashboard = () => {
   const { id } = useParams<{ id: string }>();
   const { user, signOut } = useAuth();
@@ -80,8 +144,16 @@ const Dashboard = () => {
 
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-background">
-        <div className="font-mono text-muted-foreground animate-pulse">LOADING_RESULTS...</div>
+      <div className="min-h-screen bg-background">
+        <header className="sticky top-0 z-50 border-b border-border/50 px-6 py-4 flex items-center justify-between backdrop-blur-md bg-background/80">
+          <div className="flex items-center gap-3">
+            <Sparkles className="h-4 w-4 text-primary" />
+            <h1 className="font-mono text-lg font-semibold text-foreground tracking-tight">SyllabiX</h1>
+          </div>
+        </header>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+          <DashboardSkeleton />
+        </motion.div>
       </div>
     );
   }
@@ -123,13 +195,13 @@ const Dashboard = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Topic Frequency Chart */}
-            <div className="panel-elevated rounded-lg p-6 lg:col-span-2">
+            <div className="panel-elevated rounded-lg p-4 md:p-6 lg:col-span-2">
               <h3 className="font-mono text-sm font-semibold text-foreground mb-4 tracking-wide uppercase">
                 Topic Frequency
               </h3>
-              <div className="h-[300px]">
+              <div className="h-[250px] md:h-[300px]">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={chartData} layout="vertical" margin={{ left: 140 }}>
+                  <BarChart data={chartData} layout="vertical" margin={{ left: 80, right: 10 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(240, 6%, 18%)" />
                     <XAxis type="number" tick={{ fill: "hsl(0, 0%, 50%)", fontSize: 12, fontFamily: "IBM Plex Mono" }} />
                     <YAxis

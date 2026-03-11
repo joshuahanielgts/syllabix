@@ -87,7 +87,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-muted-foreground font-sans text-lg max-w-2xl mx-auto mb-12"
+            className="text-muted-foreground font-sans text-base md:text-lg max-w-2xl mx-auto mb-10 md:mb-12 px-2"
           >
             SyllabiX analyzes syllabi and past exam papers to identify the most important topics and generate an intelligent study plan.
           </motion.p>

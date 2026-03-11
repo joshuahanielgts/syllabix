@@ -275,7 +275,12 @@ const Dashboard = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
         >
-          <h2 className="font-mono text-2xl font-bold text-foreground mb-8">Analysis Results</h2>
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="font-mono text-2xl font-bold text-foreground">Analysis Results</h2>
+            <Button variant="outline" size="sm" onClick={exportPDF} className="font-mono text-xs gap-1.5">
+              <Download className="h-3.5 w-3.5" /> Export PDF
+            </Button>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Topic Frequency Chart */}

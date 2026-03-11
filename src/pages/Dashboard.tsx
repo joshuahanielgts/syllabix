@@ -4,7 +4,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { LogOut, ArrowLeft } from "lucide-react";
+import { LogOut, ArrowLeft, History, Sparkles } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell,
 } from "recharts";
@@ -95,18 +95,22 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <button onClick={() => navigate("/upload")} className="text-muted-foreground hover:text-foreground">
+      <header className="sticky top-0 z-50 border-b border-border/50 px-6 py-4 flex items-center justify-between backdrop-blur-md bg-background/80">
+        <div className="flex items-center gap-3">
+          <button onClick={() => navigate("/history")} className="text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft className="h-4 w-4" />
           </button>
-          <h1 className="font-mono text-lg font-semibold text-foreground tracking-tight">
-            SyllabiX
-          </h1>
+          <Sparkles className="h-4 w-4 text-primary" />
+          <h1 className="font-mono text-lg font-semibold text-foreground tracking-tight">SyllabiX</h1>
         </div>
-        <Button variant="ghost" size="sm" onClick={signOut} className="text-muted-foreground">
-          <LogOut className="h-4 w-4 mr-1" /> Sign Out
-        </Button>
+        <div className="flex items-center gap-3">
+          <Button variant="ghost" size="sm" onClick={() => navigate("/history")} className="text-muted-foreground font-mono text-xs">
+            <History className="h-3.5 w-3.5 mr-1.5" /> History
+          </Button>
+          <Button variant="ghost" size="sm" onClick={signOut} className="text-muted-foreground">
+            <LogOut className="h-4 w-4 mr-1" /> Sign Out
+          </Button>
+        </div>
       </header>
 
       <div className="max-w-6xl mx-auto px-4 py-8">

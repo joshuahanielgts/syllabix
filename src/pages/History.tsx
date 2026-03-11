@@ -19,6 +19,7 @@ const History = () => {
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
   const [analyses, setAnalyses] = useState<AnalysisSummary[]>([]);
+  const [deleting, setDeleting] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

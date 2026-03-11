@@ -187,9 +187,9 @@ const Index = () => {
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center">
           <span className="font-mono text-sm text-foreground">SyllabiX</span>
           <span className="text-xs text-muted-foreground font-sans">CodeVerse 2026 Hackathon</span>
-          <a href="#" className="text-xs text-muted-foreground font-sans hover:text-foreground transition-colors">
-            GitHub Repository
-          </a>
+          
+
+          
         </div>
       </footer>
     </div>);

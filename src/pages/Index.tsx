@@ -403,7 +403,7 @@ const Index = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-mono text-3xl font-bold text-foreground mb-4">Ready to study smarter?</h2>
+          <h2 className="font-mono text-2xl md:text-3xl font-bold text-foreground mb-4">Ready to study smarter?</h2>
           <p className="text-muted-foreground font-sans mb-8">Upload your syllabus and get AI-powered insights in seconds.</p>
           <Button onClick={() => navigate("/auth")} className="h-12 px-10 font-mono text-sm tracking-wider gold-glow group">
             Get Started <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />

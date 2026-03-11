@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      analyses: {
+        Row: {
+          coverage_percentage: number | null
+          created_at: string
+          file_names: string[]
+          id: string
+          predicted_questions: Json | null
+          study_plan: Json | null
+          topics: Json | null
+          user_id: string
+        }
+        Insert: {
+          coverage_percentage?: number | null
+          created_at?: string
+          file_names?: string[]
+          id?: string
+          predicted_questions?: Json | null
+          study_plan?: Json | null
+          topics?: Json | null
+          user_id: string
+        }
+        Update: {
+          coverage_percentage?: number | null
+          created_at?: string
+          file_names?: string[]
+          id?: string
+          predicted_questions?: Json | null
+          study_plan?: Json | null
+          topics?: Json | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

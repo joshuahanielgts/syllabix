@@ -105,7 +105,7 @@ const Index = () => {
             <Button
               variant="outline"
               onClick={() => document.getElementById("dashboard-preview")?.scrollIntoView({ behavior: "smooth" })}
-              className="h-12 px-8 font-mono text-sm border-border/50 hover:border-primary/30 transition-colors"
+              className="h-12 px-8 font-mono text-sm border-border/50 hover:border-primary/30 transition-colors w-full sm:w-auto"
             >
               See Demo
             </Button>

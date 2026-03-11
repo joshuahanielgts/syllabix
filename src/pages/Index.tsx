@@ -297,7 +297,7 @@ const Index = () => {
               </div>
 
               {/* Predicted Questions */}
-              <div className="panel-elevated rounded-lg p-5 mt-5">
+              <div className="panel-elevated rounded-lg p-4 md:p-5 mt-4 md:mt-5">
                 <h3 className="font-mono text-xs font-semibold text-primary mb-4 tracking-widest uppercase">Predicted Exam Questions</h3>
                 <div className="space-y-2">
                   {demoResults.predicted_questions.slice(0, 3).map((q, i) => (

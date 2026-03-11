@@ -124,13 +124,19 @@ const Upload = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border px-6 py-4 flex items-center justify-between">
-        <h1 className="font-mono text-lg font-semibold text-foreground tracking-tight">
-          SyllabiX
-        </h1>
-        <Button variant="ghost" size="sm" onClick={signOut} className="text-muted-foreground">
-          <LogOut className="h-4 w-4 mr-1" /> Sign Out
-        </Button>
+      <header className="sticky top-0 z-50 border-b border-border/50 px-6 py-4 flex items-center justify-between backdrop-blur-md bg-background/80">
+        <div className="flex items-center gap-3">
+          <Sparkles className="h-4 w-4 text-primary" />
+          <h1 className="font-mono text-lg font-semibold text-foreground tracking-tight">SyllabiX</h1>
+        </div>
+        <div className="flex items-center gap-3">
+          <Button variant="ghost" size="sm" onClick={() => navigate("/history")} className="text-muted-foreground font-mono text-xs">
+            <History className="h-3.5 w-3.5 mr-1.5" /> History
+          </Button>
+          <Button variant="ghost" size="sm" onClick={signOut} className="text-muted-foreground">
+            <LogOut className="h-4 w-4 mr-1" /> Sign Out
+          </Button>
+        </div>
       </header>
 
       <div className="max-w-2xl mx-auto px-4 py-16">

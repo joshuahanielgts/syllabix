@@ -165,7 +165,7 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="panel-elevated rounded-lg p-6 group hover:border-primary/20 transition-all duration-300"
+              className="panel-elevated rounded-lg p-5 md:p-6 group hover:border-primary/20 transition-all duration-300"
             >
               <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
                 <feat.icon className="h-5 w-5 text-primary" />

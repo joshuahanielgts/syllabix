@@ -250,7 +250,7 @@ const Index = () => {
                 </div>
 
                 {/* Right column */}
-                <div className="md:col-span-5 flex flex-col gap-5">
+                <div className="md:col-span-5 flex flex-col gap-4 md:gap-5">
                   {/* Coverage */}
                   <div className="panel-elevated rounded-lg p-5 flex flex-col items-center justify-center">
                     <h3 className="font-mono text-xs font-semibold text-primary mb-3 tracking-widest uppercase">Exam Coverage</h3>

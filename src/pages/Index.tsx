@@ -5,17 +5,17 @@ import { BarChart3, Target, PieChart, BookOpen, ArrowRight } from "lucide-react"
 import { demoResults } from "@/lib/demo-results";
 
 const steps = [
-  { num: "01", title: "Upload", desc: "Upload your syllabus and previous exam papers as PDF files." },
-  { num: "02", title: "Analyze", desc: "AI extracts topics and calculates frequency across all papers." },
-  { num: "03", title: "Strategize", desc: "Dashboard shows priority topics, coverage, and a study roadmap." },
-];
+{ num: "01", title: "Upload", desc: "Upload your syllabus and previous exam papers as PDF files." },
+{ num: "02", title: "Analyze", desc: "AI extracts topics and calculates frequency across all papers." },
+{ num: "03", title: "Strategize", desc: "Dashboard shows priority topics, coverage, and a study roadmap." }];
+
 
 const features = [
-  { icon: BarChart3, title: "Topic Frequency Analysis", desc: "Detects the most frequently appearing topics across exam papers." },
-  { icon: Target, title: "Priority Topic Ranking", desc: "Ranks topics by exam importance — High, Medium, and Low." },
-  { icon: PieChart, title: "Exam Coverage Estimator", desc: "Predicts how much of the exam is covered by studying top topics." },
-  { icon: BookOpen, title: "AI Study Plan Generator", desc: "Creates an optimized day-by-day study roadmap." },
-];
+{ icon: BarChart3, title: "Topic Frequency Analysis", desc: "Detects the most frequently appearing topics across exam papers." },
+{ icon: Target, title: "Priority Topic Ranking", desc: "Ranks topics by exam importance — High, Medium, and Low." },
+{ icon: PieChart, title: "Exam Coverage Estimator", desc: "Predicts how much of the exam is covered by studying top topics." },
+{ icon: BookOpen, title: "AI Study Plan Generator", desc: "Creates an optimized day-by-day study roadmap." }];
+
 
 const Index = () => {
   const navigate = useNavigate();
@@ -55,22 +55,22 @@ const Index = () => {
       <section id="how-it-works" className="max-w-4xl mx-auto px-4 py-20">
         <h2 className="font-mono text-2xl font-bold text-foreground mb-12 text-center">How It Works</h2>
         <div className="space-y-6">
-          {steps.map((step, i) => (
-            <motion.div
-              key={step.num}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.4 }}
-              className="panel-elevated rounded-lg p-6 flex items-start gap-6"
-            >
+          {steps.map((step, i) =>
+          <motion.div
+            key={step.num}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1, duration: 0.4 }}
+            className="panel-elevated rounded-lg p-6 flex items-start gap-6">
+            
               <span className="font-mono text-2xl font-bold text-primary shrink-0">{step.num}</span>
               <div>
                 <h3 className="font-mono text-lg font-semibold text-foreground mb-1">{step.title}</h3>
                 <p className="text-muted-foreground font-sans text-sm">{step.desc}</p>
               </div>
             </motion.div>
-          ))}
+          )}
         </div>
       </section>
 
@@ -78,20 +78,20 @@ const Index = () => {
       <section className="max-w-4xl mx-auto px-4 py-20">
         <h2 className="font-mono text-2xl font-bold text-foreground mb-12 text-center">Core Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {features.map((feat, i) => (
-            <motion.div
-              key={feat.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.4 }}
-              className="panel-elevated rounded-lg p-6"
-            >
+          {features.map((feat, i) =>
+          <motion.div
+            key={feat.title}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1, duration: 0.4 }}
+            className="panel-elevated rounded-lg p-6">
+            
               <feat.icon className="h-6 w-6 text-primary mb-4" />
               <h3 className="font-mono text-base font-semibold text-foreground mb-2">{feat.title}</h3>
               <p className="text-muted-foreground font-sans text-sm">{feat.desc}</p>
             </motion.div>
-          ))}
+          )}
         </div>
       </section>
 
@@ -107,12 +107,12 @@ const Index = () => {
           <div className="panel-elevated rounded-lg p-6">
             <h3 className="font-mono text-xs font-semibold text-primary mb-4 tracking-widest uppercase">Top Topics</h3>
             <div className="space-y-2">
-              {demoResults.topics.slice(0, 4).map((t, i) => (
-                <div key={i} className="flex items-center justify-between">
+              {demoResults.topics.slice(0, 4).map((t, i) =>
+              <div key={i} className="flex items-center justify-between">
                   <span className="font-mono text-sm text-foreground">{t.name}</span>
                   <span className="font-mono text-xs text-muted-foreground">×{t.frequency}</span>
                 </div>
-              ))}
+              )}
             </div>
           </div>
 
@@ -127,12 +127,12 @@ const Index = () => {
           <div className="panel-elevated rounded-lg p-6">
             <h3 className="font-mono text-xs font-semibold text-primary mb-4 tracking-widest uppercase">Study Plan</h3>
             <div className="space-y-2">
-              {demoResults.study_plan.map((d, i) => (
-                <div key={i} className="flex items-center gap-3">
+              {demoResults.study_plan.map((d, i) =>
+              <div key={i} className="flex items-center gap-3">
                   <span className="font-mono text-xs text-primary">D{d.day}</span>
                   <span className="font-mono text-sm text-foreground">{d.topic}</span>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>
@@ -163,13 +163,13 @@ const Index = () => {
 
       {/* Team */}
       <section className="max-w-4xl mx-auto px-4 py-20">
-        <h2 className="font-mono text-2xl font-bold text-foreground mb-12 text-center">Team — QuadCoders</h2>
+        <h2 className="font-mono text-2xl font-bold text-foreground mb-12 text-center">Team — CodersDuo</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-xl mx-auto">
           {[
-            { name: "J Joshua Haniel", role: "AI & Full Stack Developer" },
-            { name: "Eswaramuthu M", role: "Backend & Data Systems Engineer" },
-          ].map((member) => (
-            <div key={member.name} className="panel-elevated rounded-lg p-6 text-center">
+          { name: "J Joshua Haniel", role: "AI & Full Stack Developer" },
+          { name: "Eswaramuthu M", role: "Backend & Data Systems Engineer" }].
+          map((member) =>
+          <div key={member.name} className="panel-elevated rounded-lg p-6 text-center">
               <div className="w-16 h-16 rounded-full bg-secondary mx-auto mb-4 flex items-center justify-center">
                 <span className="font-mono text-xl text-primary">
                   {member.name[0]}
@@ -178,7 +178,7 @@ const Index = () => {
               <h3 className="font-mono text-sm font-semibold text-foreground">{member.name}</h3>
               <p className="text-xs text-muted-foreground font-sans mt-1">{member.role}</p>
             </div>
-          ))}
+          )}
         </div>
       </section>
 
@@ -192,8 +192,8 @@ const Index = () => {
           </a>
         </div>
       </footer>
-    </div>
-  );
+    </div>);
+
 };
 
 export default Index;

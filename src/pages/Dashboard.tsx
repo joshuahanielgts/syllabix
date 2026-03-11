@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { LogOut, ArrowLeft, History, Sparkles, Download } from "lucide-react";
 import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable";
+import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell,
 } from "recharts";
 

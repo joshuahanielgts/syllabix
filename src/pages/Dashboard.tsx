@@ -165,6 +165,89 @@ const Dashboard = () => {
     .sort((a, b) => b.frequency - a.frequency)
     .map((t) => ({ name: t.name, frequency: t.frequency }));
 
+  const exportPDF = () => {
+    const doc = new jsPDF();
+    const gold = [244, 191, 79] as const;
+    const dark = [10, 10, 12] as const;
+
+    // Header
+    doc.setFillColor(...dark);
+    doc.rect(0, 0, 210, 30, "F");
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(18);
+    doc.setTextColor(...gold);
+    doc.text("SyllabiX — Analysis Results", 14, 20);
+
+    // Coverage
+    doc.setFontSize(11);
+    doc.setTextColor(60, 60, 60);
+    doc.text(`Exam Coverage Estimate: ${data.coverage_percentage}%`, 14, 40);
+
+    // Topics table
+    doc.setFontSize(13);
+    doc.setTextColor(30, 30, 30);
+    doc.text("Topic Frequency & Priority", 14, 52);
+
+    autoTable(doc, {
+      startY: 56,
+      head: [["Topic", "Frequency", "Priority"]],
+      body: data.topics
+        .sort((a, b) => b.frequency - a.frequency)
+        .map((t) => [t.name, String(t.frequency), t.priority]),
+      headStyles: { fillColor: [244, 191, 79], textColor: [10, 10, 12], fontStyle: "bold" },
+      alternateRowStyles: { fillColor: [245, 245, 245] },
+      styles: { fontSize: 10, font: "helvetica" },
+    });
+
+    let y = (doc as any).lastAutoTable.finalY + 12;
+
+    // Study Plan
+    doc.setFontSize(13);
+    doc.setTextColor(30, 30, 30);
+    doc.text("Smart Study Plan", 14, y);
+    y += 6;
+
+    autoTable(doc, {
+      startY: y,
+      head: [["Day", "Topic"]],
+      body: data.study_plan.map((d) => [`Day ${d.day}`, d.topic]),
+      headStyles: { fillColor: [244, 191, 79], textColor: [10, 10, 12], fontStyle: "bold" },
+      alternateRowStyles: { fillColor: [245, 245, 245] },
+      styles: { fontSize: 10 },
+    });
+
+    y = (doc as any).lastAutoTable.finalY + 12;
+
+    // Predicted Questions
+    if (y > 250) { doc.addPage(); y = 20; }
+    doc.setFontSize(13);
+    doc.setTextColor(30, 30, 30);
+    doc.text("Predicted Exam Questions", 14, y);
+    y += 6;
+
+    autoTable(doc, {
+      startY: y,
+      head: [["#", "Question"]],
+      body: data.predicted_questions.map((q, i) => [String(i + 1), q]),
+      headStyles: { fillColor: [244, 191, 79], textColor: [10, 10, 12], fontStyle: "bold" },
+      alternateRowStyles: { fillColor: [245, 245, 245] },
+      styles: { fontSize: 10 },
+      columnStyles: { 0: { cellWidth: 12 }, 1: { cellWidth: "auto" } },
+    });
+
+    // Footer
+    const pageCount = doc.getNumberOfPages();
+    for (let i = 1; i <= pageCount; i++) {
+      doc.setPage(i);
+      doc.setFontSize(8);
+      doc.setTextColor(150, 150, 150);
+      doc.text(`SyllabiX — Generated ${new Date().toLocaleDateString()}`, 14, 290);
+      doc.text(`Page ${i} of ${pageCount}`, 190, 290, { align: "right" });
+    }
+
+    doc.save("syllabix-analysis.pdf");
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}

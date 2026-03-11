@@ -153,7 +153,7 @@ const Index = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="font-mono text-2xl font-bold text-foreground mb-14 text-center"
+          className="font-mono text-xl md:text-2xl font-bold text-foreground mb-10 md:mb-14 text-center"
         >
           Core Features
         </motion.h2>

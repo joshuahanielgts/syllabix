@@ -60,7 +60,7 @@ const History = () => {
     setDeleting(null);
   };
 
-
+  return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-50 border-b border-border/50 px-6 py-4 flex items-center justify-between backdrop-blur-md bg-background/80">
         <div className="flex items-center gap-3">

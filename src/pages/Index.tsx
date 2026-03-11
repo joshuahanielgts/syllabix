@@ -397,7 +397,7 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="max-w-4xl mx-auto px-4 py-24 text-center">
+      <section className="max-w-4xl mx-auto px-4 py-16 md:py-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -98,7 +98,7 @@ const Index = () => {
             transition={{ duration: 0.6, delay: 0.35 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
           >
-            <Button onClick={() => navigate("/auth")} className="h-12 px-8 font-mono text-sm tracking-wider gold-glow group">
+            <Button onClick={() => navigate("/auth")} className="h-12 px-8 font-mono text-sm tracking-wider gold-glow group w-full sm:w-auto">
               Analyze Your Syllabus
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>

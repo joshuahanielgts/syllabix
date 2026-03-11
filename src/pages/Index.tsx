@@ -227,7 +227,7 @@ const Index = () => {
                         style={{ transformOrigin: "left" }}
                         className="flex items-center gap-3"
                       >
-                        <span className="font-mono text-[11px] text-foreground w-[180px] shrink-0 truncate">{t.name}</span>
+                        <span className="font-mono text-[10px] sm:text-[11px] text-foreground w-[120px] sm:w-[180px] shrink-0 truncate">{t.name}</span>
                         <div className="flex-1 h-5 bg-muted/50 rounded-sm overflow-hidden relative">
                           <motion.div
                             className="h-full rounded-sm"

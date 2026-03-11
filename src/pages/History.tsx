@@ -4,7 +4,8 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { LogOut, ArrowRight, Plus, FileText, Calendar, Sparkles } from "lucide-react";
+import { LogOut, ArrowRight, Plus, FileText, Calendar, Sparkles, Trash2 } from "lucide-react";
+import { toast } from "sonner";
 
 interface AnalysisSummary {
   id: string;

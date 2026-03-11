@@ -362,7 +362,7 @@ const Index = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.6, type: "spring", stiffness: 200 }}
               >
-                <div className="font-mono text-4xl font-bold text-primary">80%</div>
+                <div className="font-mono text-3xl sm:text-4xl font-bold text-primary">80%</div>
                 <div className="text-xs text-muted-foreground font-sans mt-1">Exam Questions Covered</div>
               </motion.div>
             </div>

@@ -1,0 +1,1 @@
+CREATE POLICY "Users can delete own analyses" ON public.analyses FOR DELETE TO public USING (auth.uid() = user_id);

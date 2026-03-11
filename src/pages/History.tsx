@@ -95,13 +95,15 @@ const History = () => {
               const highPriority = a.topics?.filter(t => t.priority === "High").length ?? 0;
 
               return (
-                <motion.button
+                <motion.div
                   key={a.id}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, x: -20, height: 0, marginBottom: 0 }}
                   transition={{ delay: i * 0.05, duration: 0.4 }}
+                  layout
+                  className="w-full text-left panel-elevated rounded-lg p-5 hover:border-primary/20 transition-colors duration-300 group cursor-pointer"
                   onClick={() => navigate(`/dashboard/${a.id}`)}
-                  className="w-full text-left panel-elevated rounded-lg p-5 hover:border-primary/20 transition-colors duration-300 group"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1 min-w-0">
@@ -124,17 +126,28 @@ const History = () => {
                         )}
                       </div>
                     </div>
-                    <div className="flex items-center gap-4 shrink-0">
+                    <div className="flex items-center gap-3 shrink-0">
                       {a.coverage_percentage != null && (
                         <div className="text-right">
                           <div className="font-mono text-lg font-bold text-primary">{a.coverage_percentage}%</div>
                           <div className="font-mono text-[10px] text-muted-foreground">coverage</div>
                         </div>
                       )}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDelete(a.id);
+                        }}
+                        disabled={deleting === a.id}
+                        className="p-2 rounded-md text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors opacity-0 group-hover:opacity-100"
+                        title="Delete analysis"
+                      >
+                        <Trash2 className={`h-4 w-4 ${deleting === a.id ? "animate-pulse" : ""}`} />
+                      </button>
                       <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
                     </div>
                   </div>
-                </motion.button>
+                </motion.div>
               );
             })}
           </div>

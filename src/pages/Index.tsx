@@ -51,7 +51,7 @@ const Index = () => {
       </nav>
 
       {/* Hero */}
-      <section ref={heroRef} className="relative max-w-5xl mx-auto px-4 pt-28 pb-20 text-center">
+      <section ref={heroRef} className="relative max-w-5xl mx-auto px-4 pt-16 md:pt-28 pb-16 md:pb-20 text-center">
         <motion.div style={{ opacity: heroOpacity, y: heroY }}>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

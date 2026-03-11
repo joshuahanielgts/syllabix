@@ -211,7 +211,7 @@ const Index = () => {
               <span className="ml-3 font-mono text-[10px] text-muted-foreground tracking-wider">SYLLABIX — ANALYSIS DASHBOARD</span>
             </div>
 
-            <div className="p-6">
+            <div className="p-3 sm:p-6">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
                 {/* Topic Frequency Chart */}
                 <div className="md:col-span-7 panel-elevated rounded-lg p-5">

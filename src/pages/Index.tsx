@@ -327,7 +327,7 @@ const Index = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="panel-elevated rounded-lg p-10 text-center relative overflow-hidden"
+          className="panel-elevated rounded-lg p-6 md:p-10 text-center relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.04] to-transparent" />
           <div className="relative">

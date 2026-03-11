@@ -195,13 +195,13 @@ const Dashboard = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Topic Frequency Chart */}
-            <div className="panel-elevated rounded-lg p-6 lg:col-span-2">
+            <div className="panel-elevated rounded-lg p-4 md:p-6 lg:col-span-2">
               <h3 className="font-mono text-sm font-semibold text-foreground mb-4 tracking-wide uppercase">
                 Topic Frequency
               </h3>
-              <div className="h-[300px]">
+              <div className="h-[250px] md:h-[300px]">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={chartData} layout="vertical" margin={{ left: 140 }}>
+                  <BarChart data={chartData} layout="vertical" margin={{ left: 80, right: 10 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="hsl(240, 6%, 18%)" />
                     <XAxis type="number" tick={{ fill: "hsl(0, 0%, 50%)", fontSize: 12, fontFamily: "IBM Plex Mono" }} />
                     <YAxis

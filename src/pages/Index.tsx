@@ -96,7 +96,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="flex items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
           >
             <Button onClick={() => navigate("/auth")} className="h-12 px-8 font-mono text-sm tracking-wider gold-glow group">
               Analyze Your Syllabus

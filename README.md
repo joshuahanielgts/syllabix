@@ -1,73 +1,121 @@
-# Welcome to your Lovable project
+# SyllabiX - AI-Powered Exam Intelligence
 
-## Project info
+SyllabiX is an AI-powered study assistant that analyzes your syllabus and past exam papers to create a smart study strategy. Upload your documents and get intelligent insights about the most important topics, exam coverage, and a personalized study plan.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Features
 
-## How can I edit this code?
+- **Topic Frequency Analysis** - Detects the most frequently appearing topics across exam papers
+- **Priority Topic Ranking** - Ranks topics by exam importance: High, Medium, and Low
+- **Exam Coverage Estimator** - Predicts how much of the exam is covered by studying top topics
+- **AI Study Plan Generator** - Creates an optimized day-by-day study roadmap
+- **Predicted Exam Questions** - AI-generated predicted questions based on syllabus analysis
+- **PDF Export** - Export your analysis results as a professional PDF report
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- **Frontend**: React 18.3, TypeScript 5.8, Vite 5.4
+- **Styling**: Tailwind CSS 3.4, shadcn/ui (Radix UI primitives)
+- **State Management**: TanStack React Query
+- **Routing**: React Router DOM 6.30
+- **Backend**: Supabase (Auth, Database, Storage, Edge Functions)
+- **AI**: Google Gemini 2.0 Flash
+- **Charts**: Recharts 2.15
+- **PDF Generation**: jsPDF 4.2 with autoTable
+- **Animations**: Framer Motion 12
+- **Forms**: React Hook Form with Zod validation
+- **Testing**: Vitest, Playwright, Testing Library
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18+ (or Bun)
+- npm, yarn, or bun
+- Supabase account
+- Google Gemini API key
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd syllabix
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your Supabase and Gemini API credentials
+
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Environment Variables
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Create a `.env` file with the following:
 
-**Use GitHub Codespaces**
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_GEMINI_API_KEY=your_gemini_api_key
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## How It Works
 
-## What technologies are used for this project?
+1. **Upload** - Upload your syllabus and previous exam papers as PDF files
+2. **Analyze** - AI extracts topics and calculates frequency across all papers
+3. **Strategize** - Dashboard shows priority topics, coverage, and a study roadmap
 
-This project is built with:
+## Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+syllabix/
+├── src/
+│   ├── components/          # Reusable UI components
+│   │   ├── NavLink.tsx     # Navigation link component
+│   │   ├── PageTransition.tsx # Page transition animations
+│   │   ├── ProtectedRoute.tsx # Auth route guard
+│   │   └── ui/             # shadcn/ui components
+│   ├── hooks/              # Custom React hooks
+│   │   ├── use-mobile.tsx  # Mobile detection hook
+│   │   ├── use-toast.ts    # Toast notifications hook
+│   │   └── useAuth.tsx     # Authentication hook
+│   ├── integrations/       # Third-party integrations
+│   │   ├── lovable/       # Lovable.dev integration
+│   │   └── supabase/      # Supabase client & types
+│   ├── lib/                # Utility functions
+│   │   ├── demo-results.ts # Demo data for testing
+│   │   └── utils.ts       # General utilities
+│   ├── pages/              # Page components
+│   │   ├── Auth.tsx       # Google OAuth sign-in
+│   │   ├── Dashboard.tsx  # Analysis results display
+│   │   ├── History.tsx    # Past analyses list
+│   │   ├── Index.tsx      # Landing page
+│   │   ├── NotFound.tsx   # 404 page
+│   │   └── Upload.tsx     # PDF upload interface
+│   └── test/               # Test files
+├── supabase/
+│   ├── config.toml         # Supabase local config
+│   ├── functions/          # Supabase Edge Functions
+│   │   └── analyze-syllabus/  # AI analysis function
+│   └── migrations/         # Database migrations
+└── public/                 # Static assets
+```
 
-## How can I deploy this project?
+## Available Scripts
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run build:dev` - Build in development mode
+- `npm run preview` - Preview production build
+- `npm run test` - Run tests once
+- `npm run test:watch` - Run tests in watch mode
+- `npm run lint` - Run ESLint
 
-## Can I connect a custom domain to my Lovable project?
+## License
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+MIT

@@ -1,22 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { RainbowButton } from "@/components/ui/rainbow-button";
+import { Timeline } from "@/components/ui/timeline";
+import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { BarChart3, Target, PieChart, BookOpen, ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Upload, Brain, LineChart } from "lucide-react";
 import { demoResults } from "@/lib/demo-results";
 import { useRef } from "react";
-
-const steps = [
-  { num: "01", title: "Upload", desc: "Upload your syllabus and previous exam papers as PDF files." },
-  { num: "02", title: "Analyze", desc: "AI extracts topics and calculates frequency across all papers." },
-  { num: "03", title: "Strategize", desc: "Dashboard shows priority topics, coverage, and a study roadmap." },
-];
-
-const features = [
-  { icon: BarChart3, title: "Topic Frequency Analysis", desc: "Detects the most frequently appearing topics across exam papers." },
-  { icon: Target, title: "Priority Topic Ranking", desc: "Ranks topics by exam importance — High, Medium, and Low." },
-  { icon: PieChart, title: "Exam Coverage Estimator", desc: "Predicts how much of the exam is covered by studying top topics." },
-  { icon: BookOpen, title: "AI Study Plan Generator", desc: "Creates an optimized day-by-day study roadmap." },
-];
+import joshuaImg from "@/assets/J Joshua Haniel.jpg";
+import eswaraImg from "@/assets/Eswaramuthu M.jpeg";
 
 const priorityColor = (p: string) =>
   p === "High" ? "text-primary" : p === "Medium" ? "text-foreground" : "text-muted-foreground";
@@ -28,6 +20,83 @@ const Index = () => {
   const navigate = useNavigate();
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+
+  const timelineData = [
+    {
+      title: "01 — Upload",
+      content: (
+        <div className="panel-elevated rounded-lg p-6 hover:border-primary/20 transition-colors duration-300">
+          <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+            <Upload className="h-6 w-6 text-primary" />
+          </div>
+          <h4 className="font-mono text-lg font-semibold text-foreground mb-2">Upload Your Documents</h4>
+          <p className="text-muted-foreground font-sans text-sm leading-relaxed mb-4">
+            Simply drag and drop your syllabus and previous exam question papers as PDF files. 
+            We support up to 5 files at once, each up to 10MB.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <span className="text-xs font-mono px-2 py-1 rounded bg-primary/10 text-primary">PDF Support</span>
+            <span className="text-xs font-mono px-2 py-1 rounded bg-primary/10 text-primary">Drag & Drop</span>
+            <span className="text-xs font-mono px-2 py-1 rounded bg-primary/10 text-primary">Multi-file</span>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "02 — Analyze",
+      content: (
+        <div className="panel-elevated rounded-lg p-6 hover:border-primary/20 transition-colors duration-300">
+          <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+            <Brain className="h-6 w-6 text-primary" />
+          </div>
+          <h4 className="font-mono text-lg font-semibold text-foreground mb-2">AI-Powered Analysis</h4>
+          <p className="text-muted-foreground font-sans text-sm leading-relaxed mb-4">
+            Our AI engine powered by Gemini extracts topics from your syllabus and cross-references 
+            them with past exam papers to calculate topic frequency and importance.
+          </p>
+          <div className="space-y-2">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              Extract academic topics automatically
+            </div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              Calculate frequency across all papers
+            </div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              Rank by exam importance
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "03 — Strategize",
+      content: (
+        <div className="panel-elevated rounded-lg p-6 hover:border-primary/20 transition-colors duration-300">
+          <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+            <LineChart className="h-6 w-6 text-primary" />
+          </div>
+          <h4 className="font-mono text-lg font-semibold text-foreground mb-2">Get Your Study Strategy</h4>
+          <p className="text-muted-foreground font-sans text-sm leading-relaxed mb-4">
+            View your personalized dashboard with priority topics, exam coverage estimates, 
+            a smart day-by-day study plan, and predicted exam questions.
+          </p>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="rounded-md bg-muted/50 p-3 text-center">
+              <div className="font-mono text-xl font-bold text-primary">78%</div>
+              <div className="text-xs text-muted-foreground">Coverage</div>
+            </div>
+            <div className="rounded-md bg-muted/50 p-3 text-center">
+              <div className="font-mono text-xl font-bold text-primary">5</div>
+              <div className="text-xs text-muted-foreground">Day Plan</div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+  ];
   const heroOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   const heroY = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
@@ -45,9 +114,9 @@ const Index = () => {
           <Sparkles className="inline h-4 w-4 text-primary mr-2 -mt-0.5" />
           SyllabiX
         </span>
-        <Button variant="ghost" size="sm" onClick={() => navigate("/auth")} className="font-mono text-sm text-muted-foreground hover:text-primary transition-colors">
+        <RainbowButton onClick={() => navigate("/auth")} className="h-9 px-4 font-mono text-sm">
           Sign In
-        </Button>
+        </RainbowButton>
       </nav>
 
       {/* Hero */}
@@ -104,7 +173,7 @@ const Index = () => {
             </Button>
             <Button
               variant="outline"
-              onClick={() => document.getElementById("dashboard-preview")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => window.open("https://drive.google.com/file/d/10DTuVs93v-VA9OMZ2k98Pbh_ht3VCDeQ/view?usp=sharing", "_blank")}
               className="h-12 px-8 font-mono text-sm border-border/50 hover:border-primary/30 transition-colors w-full sm:w-auto"
             >
               See Demo
@@ -114,67 +183,21 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="max-w-4xl mx-auto px-4 py-16 md:py-24">
-        <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="font-mono text-xl md:text-2xl font-bold text-foreground mb-10 md:mb-14 text-center"
-        >
-          How It Works
-        </motion.h2>
-        <div className="relative">
-          {/* Vertical connector line */}
-          <div className="absolute left-[23px] top-8 bottom-8 w-px bg-gradient-to-b from-primary/40 via-primary/20 to-transparent hidden md:block" />
-          <div className="space-y-6">
-            {steps.map((step, i) => (
-              <motion.div
-                key={step.num}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="panel-elevated rounded-lg p-4 md:p-6 flex items-start gap-4 md:gap-6 hover:border-primary/20 transition-colors duration-300"
-              >
-                <span className="font-mono text-2xl font-bold text-primary shrink-0 relative z-10">{step.num}</span>
-                <div>
-                  <h3 className="font-mono text-lg font-semibold text-foreground mb-1">{step.title}</h3>
-                  <p className="text-muted-foreground font-sans text-sm">{step.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+      <section id="how-it-works" className="w-full">
+        <Timeline data={timelineData} />
       </section>
 
       {/* Features */}
-      <section className="max-w-4xl mx-auto px-4 py-16 md:py-24">
+      <section className="px-4 py-16 md:py-24">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="font-mono text-xl md:text-2xl font-bold text-foreground mb-10 md:mb-14 text-center"
+          className="font-mono text-xl md:text-2xl font-bold text-foreground mb-4 text-center"
         >
           Core Features
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {features.map((feat, i) => (
-            <motion.div
-              key={feat.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="panel-elevated rounded-lg p-5 md:p-6 group hover:border-primary/20 transition-all duration-300"
-            >
-              <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-                <feat.icon className="h-5 w-5 text-primary" />
-              </div>
-              <h3 className="font-mono text-base font-semibold text-foreground mb-2">{feat.title}</h3>
-              <p className="text-muted-foreground font-sans text-sm leading-relaxed">{feat.desc}</p>
-            </motion.div>
-          ))}
-        </div>
+        <FeaturesSectionWithHoverEffects />
       </section>
 
       {/* Dashboard Mockup Preview */}
@@ -375,8 +398,8 @@ const Index = () => {
         <h2 className="font-mono text-2xl font-bold text-foreground mb-14 text-center">Team — CodersDuo</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-xl mx-auto">
           {[
-            { name: "J Joshua Haniel", role: "AI & Full Stack Developer" },
-            { name: "Eswaramuthu M", role: "Backend & Data Systems Engineer" },
+            { name: "J Joshua Haniel", role: "AI & Full Stack Developer", img: joshuaImg },
+            { name: "Eswaramuthu M", role: "Backend & Data Systems Engineer", img: eswaraImg },
           ].map((member, i) => (
             <motion.div
               key={member.name}
@@ -386,8 +409,8 @@ const Index = () => {
               transition={{ delay: i * 0.15, duration: 0.5 }}
               className="panel-elevated rounded-lg p-6 text-center group hover:border-primary/20 transition-colors duration-300"
             >
-              <div className="w-14 h-14 rounded-full bg-primary/10 mx-auto mb-4 flex items-center justify-center group-hover:bg-primary/15 transition-colors duration-300">
-                <span className="font-mono text-lg text-primary font-semibold">{member.name[0]}</span>
+              <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden border-2 border-primary/20 group-hover:border-primary/40 transition-colors duration-300">
+                <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
               </div>
               <h3 className="font-mono text-sm font-semibold text-foreground">{member.name}</h3>
               <p className="text-xs text-muted-foreground font-sans mt-1">{member.role}</p>

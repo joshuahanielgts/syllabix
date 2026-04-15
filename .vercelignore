@@ -1,0 +1,13 @@
+.git
+.gitignore
+README.md
+node_modules
+dist
+.env
+.env.local
+.DS_Store
+*.log
+.yalc
+yalc.lock
+supabase/.branches
+supabase/migrations

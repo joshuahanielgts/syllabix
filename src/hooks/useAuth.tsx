@@ -17,14 +17,30 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const initializeAuth = async () => {
+      try {
+        // First, try to recover session from URL (OAuth callback)
+        const { data: { session: urlSession } } = await supabase.auth.getSession();
+        if (urlSession) {
+          setSession(urlSession);
+          setLoading(false);
+          return;
+        }
+
+        // If no session from URL, check stored session
+        const { data: { session: storedSession } } = await supabase.auth.getSession();
+        setSession(storedSession);
+      } catch (error) {
+        console.error("Auth initialization error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    initializeAuth();
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
-      setLoading(false);
-    });
-
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setLoading(false);
     });
 
     return () => subscription.unsubscribe();

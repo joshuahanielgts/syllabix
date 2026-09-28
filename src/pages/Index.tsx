@@ -7,8 +7,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Sparkles, Upload, Brain, LineChart } from "lucide-react";
 import { demoResults } from "@/lib/demo-results";
 import { useRef } from "react";
-import joshuaImg from "@/assets/J Joshua Haniel.jpg";
-import eswaraImg from "@/assets/Eswaramuthu M.jpeg";
 
 const priorityColor = (p: string) =>
   p === "High" ? "text-primary" : p === "Medium" ? "text-foreground" : "text-muted-foreground";
@@ -393,31 +391,6 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* Team */}
-      <section className="max-w-4xl mx-auto px-4 py-16 md:py-24">
-        <h2 className="font-mono text-2xl font-bold text-foreground mb-14 text-center">Team — CodersDuo</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-xl mx-auto">
-          {[
-            { name: "J Joshua Haniel", role: "AI & Full Stack Developer", img: joshuaImg },
-            { name: "Eswaramuthu M", role: "Backend & Data Systems Engineer", img: eswaraImg },
-          ].map((member, i) => (
-            <motion.div
-              key={member.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15, duration: 0.5 }}
-              className="panel-elevated rounded-lg p-6 text-center group hover:border-primary/20 transition-colors duration-300"
-            >
-              <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden border-2 border-primary/20 group-hover:border-primary/40 transition-colors duration-300">
-                <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
-              </div>
-              <h3 className="font-mono text-sm font-semibold text-foreground">{member.name}</h3>
-              <p className="text-xs text-muted-foreground font-sans mt-1">{member.role}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="max-w-4xl mx-auto px-4 py-16 md:py-24 text-center">
